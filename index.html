@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Velkommen <span id="name"></span></h1>
+    <div></div>
+    <script>
+        const nameSpan = document.getElementById('name')
+
+        const person = {
+            name: 'Glenn',
+            age: 24,
+            hobby: 'golf',
+            address: {
+                street: 'Veien',
+                zipCode: 1234
+            }
+        }
+        console.log('Person', person);
+        
+        // Destructuring of object, create variables of elements in person object
+        const { name, age, hobby } = person
+
+        // Example without destructuring with createing variables
+        // const name = person.name
+        // const age = person.age
+        // const hobby = person.hobby
+
+        console.log('person destruct', name, age, hobby);
+        
+        // Example of the same as Spred operator above, but not using spread operator 
+        const newPersonFormat = {
+            name: person.name,
+            age: person.age,
+            address: {
+                street: person.address.street,
+                zipCode: person.address.zipCode
+            },
+            food: 'taco'
+        }
+
+        
+        // Json object
+        const personJson = '{ "name": "glenn", "age": 24 }'
+        console.log('PersonJson', personJson);
+
+        // Parse json object to js object
+        const newPersonObjectParsedFromJson = JSON.parse(personJson)
+        console.log('PersonJsObjectParsedFromJson', newPersonObjectParsedFromJson);
+
+        // Create json from js object
+        const personObjectToJson = JSON.stringify(person)
+        console.log('PersonObjectToJson', personObjectToJson)
+
+
+        const persons = [
+            {
+                name: 'Glenn',
+                age: 24
+            },
+            {
+                name: 'Bjarn',
+                age: 16
+            },
+            {
+                name: 'Anne',
+                age: 10
+            },
+            {
+                name: 'Tank',
+                age: 56
+            }
+        ]
+
+        const indexPersons = persons.indexOf(person => person.age == 24)
+        console.log('indexPersons', indexPersons);
+
+        
+        const personOver18 = persons.filter(person => person.age > 18)
+        const personOver18Destruct = persons.filter(({ age }) => age > 18)
+
+        console.log('PersonsOver18', personOver18);
+
+        const personYearOlder = persons.map(person => person.age + 1)
+
+        console.log('personsYearOlder', persons, personYearOlder);
+
+
+        const findPersonWithName = persons.find((person) => person.name === 'Anne')
+
+        const isThisListContainingPersonWithName = persons.includes((person) => person.name === 'Anne')
+         
+        const arrayAge = [24, 19, 56]
+        
+        // Find index on iten in array 
+        const index = arrayAge.indexOf(56)
+        console.log('indexOf', index);
+        console.log(arrayAge[index]);
+
+
+        const addAge = [...arrayAge, 48]
+
+        console.log('newAge', addAge);
+
+            if(arrayAge.includes(17)) {
+                console.log('Den inneholder 19');
+            } else {
+                console.log('Trafff ikke nummer');
+            }
+
+
+
+
+        
+            const eveveryBodyIsAYearOlder = arrayAge.map(age => {})
+            console.log('yearOlder', eveveryBodyIsAYearOlder)
+        console.log('IsItContainingPerson', isThisListContainingPersonWithName);
+
+        console.log('FoundPerson', findPersonWithName)
+
+        // const nameAge = `${newPerson.name} og du er ${newPerson.age} gammel`
+
+        // nameSpan.innerText = newPerson.name + ' og du er ' + newPerson.age +  ' gammel'
+
+        nameSpan.innerText = `${name} og du er ${age} gammel. Og neste år blir du ${age + 1}`
+
+        console.log('PersonConvertet', newPerson);
+
+        
+
+    </script>
+</body>
+</html>

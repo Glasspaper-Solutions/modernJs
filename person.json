@@ -1,0 +1,14 @@
+{
+    "name": "Glenn",
+    "age": 32,
+    "hobbies": [
+        {
+            "name": "Golf",
+            "type": "Sports"
+        }
+    ],
+    "address": {
+        "street": "Veien 1",
+        "zipcode": 1459
+    }
+}
